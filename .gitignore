@@ -1,0 +1,64 @@
+# Environment & Secrets (Crucial: do not commit credentials)
+.env
+.env.*
+*.env
+!.env.example
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Scratch & temporary files
+py.py
+*.tmp
+*.temp
+scratch/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Packaging & Distribution
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Database / local dumps
+*.sqlite3
+*.db
+dump/
