@@ -24,3 +24,14 @@ MongoDB **6.0 or newer** is required (the grader uses 7.0). MongoDB Atlas free t
 ## Submit
 A public Git repository with `app/main.py`, `requirements.txt`, `REVIEW.md`, `DECISIONS.md` and a short `README.md`.
 No `.env`, no secrets, no Dockerfile.
+
+`Known Limitations and Unverified Functionality`
+
+I have tested the functionality that I could verify in my local environment. Some tests may remain unverified because a working MongoDB connection or sufficient test data was not available. I have not claimed these tests as passed.
+
+The following areas need further verification:
+Concurrency: Verify simultaneous punch-in requests return one HTTP 201 and one HTTP 409.
+Analytics: Verify aggregation results against expected results using representative test data.
+Performance: Test query execution plans and response times with a large dataset.
+Edge cases: Test invalid inputs, missing employees, duplicate records, and date/time boundary cases.
+These areas should be tested further before considering the application fully production-ready.

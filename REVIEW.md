@@ -18,10 +18,9 @@ List every defect you found in the starter `app/main.py` (helpers and endpoints)
 | 12 | `compute_late_minutes` / ~37 | Calculates 0 for 10.016 mins (grace period missed) | Shift 09:30, punch 09:40:01 calculates 0 instead of 10 | Rewrote logic to `diff_seconds > 600`, correctly flooring `diff_seconds // 60`. |
 | 13 | `compute_work_hours` / ~41 | Python `round()` uses banker's rounding | `2.125` rounds to `2.12` instead of `2.13` (R8) | Replaced with `Decimal` operations using `ROUND_HALF_UP`. |
 | 14 | `compute_overtime` / ~47 | Ignores R3 >= 30 mins constraint | Punch out 20 mins after shift end returned 20 | Added `if minutes >= 30:` conditional before returning. |
-| 15 | `EmployeeIn` / schemas | Missing shift validation | `shift_start == shift_end` | Added `@model_validator` to enforce `shift_start != shift_end`. |
-| 16 | `PunchInIn` / schemas | Allows out of bound epoch millis | Invalid timestamp like 1783312500 (seconds) | Added `ge=100000000000` constraint on `punched_at`. |
-| 17 | `list_attendance` / ~128 | date_from > date_to not validated | Passing invalid date ranges | Added manual format check and `date_from > date_to` raises 422. |
-| 18 | `create_employee` / schemas | Inspected `emp_code` validation regex (`EMP\d{4,6}`) | Validated that correct `emp_code`s pass (Not a defect) | No changes required. |
+| 15 | `PunchInIn` / schemas | Allows out of bound epoch millis | Invalid timestamp like 1783312500 (seconds) | Added `ge=100000000000` constraint on `punched_at`. |
+| 16 | `list_attendance` / ~128 | date_from > date_to not validated | Passing invalid date ranges | Added manual format check and `date_from > date_to` raises 422. |
+| 17 | `create_employee` / schemas | Inspected `emp_code` validation regex (`EMP\d{4,6}`) | Validated that correct `emp_code`s pass (Not a defect) | No changes required. |
 
 
 Also note anything you looked at and decided was **not** a defect, and why.
